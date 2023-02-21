@@ -20,8 +20,8 @@
 #include <Adafruit_SharpMem.h>
 
 // any pins can be used
-#define SHARP_SCK  19
-#define SHARP_MOSI 18
+#define SHARP_SCK  1
+#define SHARP_MOSI 13
 #define SHARP_SS   12
 
 
@@ -44,8 +44,6 @@ void setup(void) {
   Serial.begin(115200);
   SPI.begin(SHARP_SCK, 11, SHARP_MOSI, SHARP_SS);
 
-  // Serial.println("Hello!");
-
   // start & clear the display
   display.begin();
   display.clearDisplay();
@@ -57,6 +55,7 @@ void setup(void) {
   // draw a single pixel
   display.drawPixel(10, 10, BLACK);
   display.refresh();
+  Serial.println("Hello!");
   delay(500);
   display.clearDisplay();
 
@@ -119,7 +118,7 @@ void setup(void) {
 
 void loop(void)
 {
-  esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
+  // esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
   Serial.println("enter deep sleep");
   esp_deep_sleep_start();
 }
