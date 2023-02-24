@@ -26,7 +26,7 @@
 
 
 // Set the size and color depth, e.g. 3 bits for LS013B7DH06 (8 colors 128x128 display)
-Adafruit_SharpMem display(&SPI, SHARP_SS, 128, 128, 3, 2000000); // 2100000 ok, 2500000 wrong, 230000 LDO ok
+Adafruit_SharpMem display(&SPI, SHARP_SS, 128, 128, 1, 2000000); // 2100000 ok, 2500000 wrong, 230000 LDO ok
 
 // Set the size of the display here, e.g. 144x168!
 // Adafruit_SharpMem display(SHARP_SCK, SHARP_MOSI, SHARP_SS, 144, 168);

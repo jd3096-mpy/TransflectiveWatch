@@ -2,20 +2,16 @@ from machine import SPI, Pin
 import framebuf,time
 
 class MemLCD:
-    XDIM = 128
-    YDIM = 128
+    XDIM = 144
+    YDIM = 168
 
     def __init__(self):
-        self.spi = SPI(baudrate=1100000,polarity=0, phase=0,
-                       firstbit=SPI.MSB,
-                       sck=Pin(1),
-                       mosi=Pin(13),
-                       miso=Pin(4)
-                       ) # None
+        self.spi = SPI(baudrate=1100000,polarity=0, phase=0,firstbit=SPI.MSB, sck=Pin(1), mosi=Pin(13),
+                       miso=Pin(8))
         self.cs = Pin(12, Pin.OUT)
         self.cs.value(0)
-        # self.disp = Pin(self.DISP, Pin.OUT)
-        # self.disp.value(1)
+        #self.disp = Pin(self.DISP, Pin.OUT)
+        #self.disp.value(1)
 
         self._xdim = self.XDIM
         self._ydim = self.YDIM
@@ -48,11 +44,11 @@ class MemLCD:
 
 
     def send(self, value):
-        self.spi.send(value)
+        self.spi.write(value.to_bytes(1, 'little'))
 
     # sync up screen with framebuffer contents
     # done by implementing the lcd command to write a single line, for every line in the buffer
-    def sync(self):
+    def show(self):
         index = 0
         for line in range(self._ydim):
             self.cs.value(1)

@@ -1,7 +1,7 @@
-from LCD import SharpMemLCD
+from LCD import MemLCD # MemLCD
 import time
 
-lcd = SharpMemLCD()
+lcd = MemLCD()
 lcd.write("Hello World", 0, 0)
 lcd.sync()
 
