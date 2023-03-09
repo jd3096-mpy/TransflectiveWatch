@@ -11,7 +11,7 @@ print(calc_battery_life_in_days(120, 30.0, 76.8, 1.0, 59.0))
 
 print(calc_battery_life_in_days(120, 11.0, 76.8, 1.0, 59.0))
 
-print(calc_battery_life_in_days(120, 11.0, 20.0, 1.0, 59.0))
+print(calc_battery_life_in_days(120, 11.0, 20.0, 0.1, 59.9))
 
 print('开0秒，deep-sleep所有时间')
 print(calc_battery_life_in_days(120, 11.0, 20.0, 0.0, 59.0))
