@@ -1,7 +1,7 @@
 #pragma once
 
 #include "RTClib.h"
-
+#define FORCE_ADJUST_RTC 0
 RTC_PCF8563 rtc;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
@@ -15,7 +15,7 @@ void init_rtc() {
     while (1) delay(10);
   }
 
-  if (rtc.lostPower()) {
+  if (rtc.lostPower() || FORCE_ADJUST_RTC) {
     Serial.println("RTC is NOT initialized, let's set the time!");
     // When time needs to be set on a new device, or after a power loss, the
     // following line sets the RTC to the date & time this sketch was compiled

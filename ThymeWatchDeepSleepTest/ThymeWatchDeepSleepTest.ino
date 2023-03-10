@@ -61,60 +61,6 @@ void setup(void) {
   display.drawPixel(10, 10, BLACK);
   display.refresh();
   Serial.println("Hello!");
-  delay(500);
-  display.clearDisplay();
-
-  // draw many lines
-  testdrawline();
-  delay(500);
-  display.clearDisplay();
-
-  // draw a circle, 10 pixel radius
-  display.fillCircle(display.width() / 2, display.height() / 2, 10, BLACK);
-  display.refresh();
-  delay(500);
-  display.clearDisplay();
-
-  testdrawchar();
-  display.refresh();
-  for (int i = 0; i < 4; i++) {
-    display.refresh();
-    delay(500);
-  }
-
-  test_rotation_text();
-  display.clearDisplay();
-
-  testdrawtriangle();
-  display.refresh();
-  delay(500);
-  display.clearDisplay();
-
-  testfilltriangle();
-  display.refresh();
-  delay(500);
-  display.clearDisplay();
-
-  testdrawroundrect();
-  display.refresh();
-  delay(500);
-  display.clearDisplay();
-
-  testfillroundrect();
-  display.refresh();
-  delay(500);
-  display.clearDisplay();
-
-  // draw rectangles
-  testdrawrect();
-  delay(500);
-  display.clearDisplay();
-
-  // draw multiple rectangles
-  testfillrect();
-  display.refresh();
-  delay(500);
-  // display.clearDisplay();
 }
 
 #define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
@@ -124,7 +70,7 @@ void setup(void) {
 void loop(void) {
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
   Serial.println("enter deep sleep");
-  delay(5000);
+  // delay(5000);
   esp_deep_sleep_start();
 }
 
